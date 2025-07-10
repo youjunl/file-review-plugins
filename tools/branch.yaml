@@ -1,0 +1,58 @@
+identity:
+  name: "branch"
+  author: "youjunl"
+  label:
+    en_US: "branch"
+    zh_Hans: "分支结构"
+    pt_BR: "branch"
+description:
+  human:
+    en_US: ""
+    zh_Hans: "判断审查要点是否开启及重要性."
+    pt_BR: ""
+  llm: ""
+parameters:
+  - name: key
+    type: string
+    required: true
+    label:
+      en_US: key
+      zh_Hans: 键名
+      pt_BR: key
+    human_description:
+      en_US: ""
+      zh_Hans: ""
+      pt_BR: ""
+    llm_description: ""
+    form: form
+  
+  - name: requirements
+    type: string
+    required: true
+    label:
+      en_US: requirements
+      zh_Hans: 审查要求
+      pt_BR: requirements
+    human_description:
+      en_US: ""
+      zh_Hans: ""
+      pt_BR: ""
+    llm_description: ""
+    form: llm
+
+  - name: levels
+    type: string
+    required: true
+    label:
+      en_US: levels
+      zh_Hans: 重要程度
+      pt_BR: levels
+    human_description:
+      en_US: ""
+      zh_Hans: ""
+      pt_BR: ""
+    llm_description: ""
+    form: llm
+extra:
+  python:
+    source: tools/branch.py

@@ -1,0 +1,30 @@
+identity:
+  name: "docx_split"
+  author: "youjunl"
+  label:
+    en_US: "docx_split"
+    zh_Hans: "DOCX文件拆分"
+    pt_BR: "docx_split"
+description:
+  human:
+    en_US: "A function to split docx file into json."
+    zh_Hans: "将DOCX按层级拆分为JSON."
+    pt_BR: "A function to split docx file into json."
+  llm: "A function to split docx file into json."
+parameters:
+  - name: url
+    type: string
+    required: true
+    label:
+      en_US: File url
+      zh_Hans: 文件地址
+      pt_BR: File url
+    human_description:
+      en_US: "A function to split docx file into json."
+      zh_Hans: "A function to split docx file into json."
+      pt_BR: "A function to split docx file into json."
+    llm_description: "A function to split docx file into json."
+    form: llm
+extra:
+  python:
+    source: tools/docx_split.py

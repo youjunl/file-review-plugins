@@ -1,0 +1,45 @@
+version: 0.0.1
+type: plugin
+author: youjunl
+name: file-review-plugins
+label:
+  en_US: file-review-plugins
+  ja_JP: file-review-plugins
+  zh_Hans: 文档评估插件
+  pt_BR: file-review-plugins
+description:
+  en_US: 文档审查插件
+  ja_JP: 文档审查插件
+  zh_Hans: 文档审查插件
+  pt_BR: 文档审查插件
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+      text_embedding: false
+      rerank: false
+      tts: false
+      speech2text: false
+      moderation: false
+
+plugins:
+  tools:
+    - provider/file-review-plugins.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.10"
+    entrypoint: main
+  minimum_dify_version: 1.4.0
+created_at: 2025-07-10T22:12:10.6877552+08:00
+privacy: PRIVACY.md
+verified: false
