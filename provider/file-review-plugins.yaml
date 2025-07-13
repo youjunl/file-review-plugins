@@ -13,7 +13,10 @@ identity:
 tools:
   # - tools/file-review-plugins.yaml
   - tools/docx_split.yaml
+  - tools/docx_split_fin.yaml
   - tools/branch.yaml
+  - tools/docx_find.yaml
+  - tools/post_process.yaml
 extra:
   python:
     source: provider/file-review-plugins.py

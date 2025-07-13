@@ -1,0 +1,52 @@
+identity:
+  name: "docx_find"
+  author: "youjunl"
+  label:
+    en_US: "docx_find"
+    zh_Hans: "DOCX相关内容提取"
+    pt_BR: "docx_find"
+description:
+  human:
+    en_US: "A function to find related section from docx file(json)."
+    zh_Hans: "将DOCX按层级拆分为JSON."
+    pt_BR: "A function to find related section from docx file(json)."
+  llm: "A function to find related section from docx file(json)."
+parameters:
+  - name: keyword
+    type: string
+    required: true
+    label:
+      en_US: keyword
+      zh_Hans: 关键字
+      pt_BR: keyword
+    human_description:
+      en_US: "keyword."
+      zh_Hans: "查询关键字."
+      pt_BR: "keyword."
+    llm_description: "keyword."
+    form: form
+
+  - name: scheme_json
+    type: string
+    required: true
+    label:
+      en_US: scheme_json
+      zh_Hans: 拆分的DOCX内容
+      pt_BR: scheme_json
+    human_description:
+      en_US: "docx content."
+      zh_Hans: "拆分的DOCX内容."
+      pt_BR: "docx content."
+    llm_description: "docx content."
+    form: llm
+output_schema:
+  type: object
+  properties:
+    scheme_text:
+      type: string
+      label:
+        en_US: scheme_text
+        zh_Hans: 查询结果
+extra:
+  python:
+    source: tools/docx_find.py

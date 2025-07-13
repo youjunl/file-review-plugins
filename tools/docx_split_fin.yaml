@@ -1,10 +1,10 @@
 identity:
-  name: "docx_split"
+  name: "docx_split_fin"
   author: "youjunl"
   label:
-    en_US: "docx_split"
-    zh_Hans: "DOCX文件拆分"
-    pt_BR: "docx_split"
+    en_US: "docx_split_fin"
+    zh_Hans: "DOCX文件拆分（RAW）"
+    pt_BR: "docx_split_fin"
 description:
   human:
     en_US: "A function to split docx file into json."
@@ -12,27 +12,19 @@ description:
     pt_BR: "A function to split docx file into json."
   llm: "A function to split docx file into json."
 parameters:
-  - name: url
-    type: string
+  - name: file
+    type: file
     required: true
     label:
-      en_US: File url
-      zh_Hans: 文件地址
-      pt_BR: File url
+      en_US: File
+      zh_Hans: 文件
+      pt_BR: File
     human_description:
       en_US: "A function to split docx file into json."
       zh_Hans: "A function to split docx file into json."
       pt_BR: "A function to split docx file into json."
     llm_description: "A function to split docx file into json."
     form: llm
-output_schema:
-  type: object
-  properties:
-    scheme_json:
-      type: string
-      label:
-        en_US: scheme_json
-        zh_Hans: json结果
 extra:
   python:
-    source: tools/docx_split.py
+    source: tools/docx_split_fin.py

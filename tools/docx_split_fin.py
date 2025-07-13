@@ -3,9 +3,9 @@ from typing import Any
 
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
+from dify_plugin.file.file import File
 
 import docx
-import httpx
 import re
 from io import BytesIO
 from dataclasses import dataclass,asdict, is_dataclass
@@ -201,19 +201,25 @@ def build_heading_tree_new(doc) -> list[HeadingNode]:
 
     return root_nodes
 
-class DocxSplitTool(Tool):
+class DocxSplitToolFin(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
-        url = tool_parameters.get("url")
-        response = httpx.get(url)
-        response.raise_for_status()
-        doc_stream = BytesIO(response.content)
+        file = tool_parameters.get("file")
+        # 确保获取二进制数据
+        if isinstance(file.blob, bytes):
+            # 如果已经是字节数据
+            file_data = file.blob
+        else:
+            raise ValueError(f"不支持的文件格式，需要文件对象或字节数据{type(file._blob)}")
+        doc_stream = BytesIO(file_data)
         doc_stream.seek(0)
         scheme_doc = docx.Document(doc_stream)
-
         scheme_heading_tree = build_heading_tree_new(scheme_doc)
-
         scheme_json = json.dumps(
             dataclass_to_dict(scheme_heading_tree), 
             ensure_ascii=False 
         )
-        yield self.create_variable_message("scheme_json", scheme_json)
+        yield self.create_json_message(
+            {
+                "schemeJson": scheme_json
+            }
+        )

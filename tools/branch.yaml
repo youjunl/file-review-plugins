@@ -7,10 +7,10 @@ identity:
     pt_BR: "branch"
 description:
   human:
-    en_US: ""
+    en_US: "1"
     zh_Hans: "判断审查要点是否开启及重要性."
-    pt_BR: ""
-  llm: ""
+    pt_BR: "1"
+  llm: "1"
 parameters:
   - name: key
     type: string
@@ -20,10 +20,10 @@ parameters:
       zh_Hans: 键名
       pt_BR: key
     human_description:
-      en_US: ""
-      zh_Hans: ""
-      pt_BR: ""
-    llm_description: ""
+      en_US: "1"
+      zh_Hans: "1"
+      pt_BR: "1"
+    llm_description: "1"
     form: form
   
   - name: requirements
@@ -34,10 +34,10 @@ parameters:
       zh_Hans: 审查要求
       pt_BR: requirements
     human_description:
-      en_US: ""
-      zh_Hans: ""
-      pt_BR: ""
-    llm_description: ""
+      en_US: "1"
+      zh_Hans: "1"
+      pt_BR: "1"
+    llm_description: "1"
     form: llm
 
   - name: levels
@@ -48,10 +48,10 @@ parameters:
       zh_Hans: 重要程度
       pt_BR: levels
     human_description:
-      en_US: ""
-      zh_Hans: ""
-      pt_BR: ""
-    llm_description: ""
+      en_US: "1"
+      zh_Hans: "1"
+      pt_BR: "1"
+    llm_description: "1"
     form: llm
 extra:
   python:

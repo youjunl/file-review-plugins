@@ -10,23 +10,18 @@ class BranchTool(Tool):
         requirements = tool_parameters.get("requirements")
         levels = tool_parameters.get("levels")
         levels = levels.split(',')
-        try:
-            activated = False
-            level = ""
-            if key in requirements:
-                activated = True
-                requirements = requirements.split(',')
-                for i, r in enumerate(requirements):
-                    if key in r:
-                        level = levels[i]
-                        break
-            yield self.create_json_message(
-                    {
-                        "activated": activated,
-                        "level":level
-                    }
-                )
-        except Exception as e:
-            yield self.create_json_message({
-                "error": f" {str(e)}"
-            })
+        activated = False
+        level = ""
+        if key in requirements:
+            activated = True
+            requirements = requirements.split(',')
+            for i, r in enumerate(requirements):
+                if key in r:
+                    level = levels[i]
+                    break
+        yield self.create_json_message(
+                {
+                    "activated": activated,
+                    "level":level
+                }
+            )
