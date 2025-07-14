@@ -4,12 +4,10 @@ identity:
   label:
     en_US: "post_process"
     zh_Hans: "处理分析结果"
-    pt_BR: "post_process"
 description:
   human:
     en_US: "post_process"
     zh_Hans: "处理分析结果."
-    pt_BR: "post_process"
   llm: "post_process"
 parameters:
   - name: llm_result
@@ -18,11 +16,9 @@ parameters:
     label:
       en_US: llm_result
       zh_Hans: 大模型输出结果
-      pt_BR: llm_result
     human_description:
       en_US: "llm_result"
       zh_Hans: "大模型输出结果"
-      pt_BR: "llm_result"
     llm_description: "llm_result"
     form: llm
   
@@ -32,11 +28,9 @@ parameters:
     label:
       en_US: scheme_json
       zh_Hans: 文档内容
-      pt_BR: scheme_json
     human_description:
       en_US: "scheme_json"
       zh_Hans: "文档内容"
-      pt_BR: "scheme_json"
     llm_description: "scheme_json"
     form: llm
 
@@ -46,11 +40,9 @@ parameters:
     label:
       en_US: level
       zh_Hans: 重要性
-      pt_BR: level
     human_description:
       en_US: "level"
       zh_Hans: "重要性"
-      pt_BR: "level"
     llm_description: "level"
     form: llm
 
@@ -60,14 +52,19 @@ parameters:
     label:
       en_US: reference
       zh_Hans: 引用文件
-      pt_BR: reference
     human_description:
       en_US: "reference"
       zh_Hans: "引用文件"
-      pt_BR: "reference"
     llm_description: "reference"
     form: form
-
+output_schema:
+  type: object
+  properties:
+    result:
+      type: object
+      label:
+        en_US: result_list
+        zh_Hans: 列表结果
 extra:
   python:
     source: tools/post_process.py

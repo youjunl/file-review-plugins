@@ -10,18 +10,14 @@ class BranchTool(Tool):
         requirements = tool_parameters.get("requirements")
         levels = tool_parameters.get("levels")
         levels = levels.split(',')
-        activated = False
+        activated = "0"
         level = ""
         if key in requirements:
-            activated = True
+            activated = "1"
             requirements = requirements.split(',')
             for i, r in enumerate(requirements):
                 if key in r:
                     level = levels[i]
                     break
-        yield self.create_json_message(
-                {
-                    "activated": activated,
-                    "level":level
-                }
-            )
+        yield self.create_variable_message("activated", activated)
+        yield self.create_variable_message("level", level)

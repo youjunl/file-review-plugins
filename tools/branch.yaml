@@ -7,10 +7,9 @@ identity:
     pt_BR: "branch"
 description:
   human:
-    en_US: "1"
-    zh_Hans: "判断审查要点是否开启及重要性."
-    pt_BR: "1"
-  llm: "1"
+    en_US: "判断审查要点是否开启及重要性"
+    zh_Hans: "判断审查要点是否开启及重要性"
+  llm: "判断审查要点是否开启及重要性"
 parameters:
   - name: key
     type: string
@@ -20,10 +19,9 @@ parameters:
       zh_Hans: 键名
       pt_BR: key
     human_description:
-      en_US: "1"
-      zh_Hans: "1"
-      pt_BR: "1"
-    llm_description: "1"
+      en_US: "键名"
+      zh_Hans: "键名"
+    llm_description: "键名"
     form: form
   
   - name: requirements
@@ -34,10 +32,10 @@ parameters:
       zh_Hans: 审查要求
       pt_BR: requirements
     human_description:
-      en_US: "1"
-      zh_Hans: "1"
-      pt_BR: "1"
-    llm_description: "1"
+      en_US: "审查要求"
+      zh_Hans: "审查要求"
+      pt_BR: "审查要求"
+    llm_description: "审查要求"
     form: llm
 
   - name: levels
@@ -46,13 +44,24 @@ parameters:
     label:
       en_US: levels
       zh_Hans: 重要程度
-      pt_BR: levels
     human_description:
-      en_US: "1"
-      zh_Hans: "1"
-      pt_BR: "1"
-    llm_description: "1"
+      en_US: "重要程度"
+      zh_Hans: "重要程度"
+    llm_description: "重要程度"
     form: llm
+output_schema:
+  type: object
+  properties:
+    activated:
+      type: string
+      label:
+        en_US: activated
+        zh_Hans: 激活情况
+    level:
+      type: string
+      label:
+        en_US: level
+        zh_Hans: 重要程度    
 extra:
   python:
     source: tools/branch.py

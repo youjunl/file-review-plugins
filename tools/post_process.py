@@ -105,6 +105,4 @@ class PostProcessTool(Tool):
             else:
                 data["paragraph_no"] = 1
 
-        yield self.create_json_message({
-            "result": result_list
-        })
+        yield self.create_variable_message("result", result_list)
